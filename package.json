@@ -1,0 +1,22 @@
+{
+  "name": "sauce-labs-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report /output/report",
+    "test:trace": "playwright test --trace on",
+    "test:ui": "playwright test --ui",
+    "show:trace": "npx playwright show-trace trace.zip"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.12.12",
+    "dotenv": "^16.4.5"
+  }
+}

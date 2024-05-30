@@ -1,6 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
+import BasePage from './base.page';
 
-export class BasePage {
+export default class CheckoutYourInformationPage extends BasePage {
     readonly page: Page;
     readonly firstNameInp: Locator;
     readonly lastNameInp: Locator;
@@ -8,6 +9,7 @@ export class BasePage {
     readonly continueBtn: Locator;
 
     constructor(page: Page) {
+        super(page);
         this.page = page;
         this.firstNameInp = page.getByTestId('firstName');
         this.lastNameInp = page.getByTestId('lastName');

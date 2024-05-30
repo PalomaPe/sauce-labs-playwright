@@ -1,7 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
-import { BasePage } from './base.page';
+import BasePage from './base.page';
 
-export class ItemPage extends BasePage {
+export default class ItemPage extends BasePage {
 
     readonly item: Locator;
     readonly itemDesc: Locator;

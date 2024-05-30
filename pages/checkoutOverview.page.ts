@@ -1,6 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
+import BasePage from './base.page';
 
-export class BasePage {
+export default class CheckoutOverviewPage extends BasePage {
     readonly page: Page;
     readonly itemQtyTxt: Locator;
     readonly itemNameTxt: Locator;
@@ -11,6 +12,7 @@ export class BasePage {
     readonly finishBtn: Locator;
 
     constructor(page: Page) {
+        super(page);
         this.page = page;
         this.itemQtyTxt = page.getByTestId('item-quantity');
         this.itemNameTxt = page.getByTestId('inventory-item-name');

@@ -8,13 +8,13 @@ import CheckoutOverviewPage from "../pages/checkoutOverview.page";
 import { backpackItem } from "../data/products";
 
 test('eCommerce product purchase flow', async ({ page }) => {
-const loginPage = new LoginPage(page);
-const inventoryPage = new InventoryPage(page);
-const intemPage = new ItemPage(page);
-const cartPage = new CartPage(page);
-const checkoutYourInformationPage = new CheckoutCompletePage(page);
-const checkoutOverviewPage = new CheckoutOverviewPage(page);
-const checkoutComplete = new CheckoutCompletePage(page);
+  const loginPage = new LoginPage(page);
+  const inventoryPage = new InventoryPage(page);
+  const intemPage = new ItemPage(page);
+  const cartPage = new CartPage(page);
+  const checkoutYourInformationPage = new CheckoutCompletePage(page);
+  const checkoutOverviewPage = new CheckoutOverviewPage(page);
+  const checkoutComplete = new CheckoutCompletePage(page);
 
   await test.step('Navigate to the eCommerce site', async () => {
     await page.goto('');
@@ -27,17 +27,14 @@ const checkoutComplete = new CheckoutCompletePage(page);
     await expect(inventoryPage.itemPrice).toHaveText(backpackItem.price);
 
     await inventoryPage.addToCartBtn.click();
-    await expect(page).toHaveTitle(backpackItem.price);
-});
-
-  await test.step('Navigate to the eCommerce site', async () => {
-    await page.goto('');
-    await expect(page).toHaveTitle(loginPage.title);
   });
 
-  await test.step('Search for a product', async () => {
-    await page.fill('input[name="search"]', 'Product Name');
-    await page.click('button[type="submit"]');
+  await test.step('Navigate to the eCommerce site', async () => {
+    await expect(intemPage.itemName).toHaveText(backpackItem.name);
+    await expect(intemPage.itemDesc).toHaveText(backpackItem.desc);
+    await expect(intemPage.itemPrice).toHaveText(backpackItem.price);
+    
+    await itemPage.addToCartBtn.click();
   });
 
 });

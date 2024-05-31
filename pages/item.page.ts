@@ -4,6 +4,7 @@ import BasePage from './base.page';
 export default class ItemPage extends BasePage {
 
     readonly item: Locator;
+    readonly itemName: Locator;
     readonly itemDesc: Locator;
     readonly itemPrice: Locator;
     readonly addToCartBtn: Locator;
@@ -12,6 +13,7 @@ export default class ItemPage extends BasePage {
     constructor(page: Page) {
         super(page);
         this.item = page.getByTestId('inventory_item');
+        this.itemName = this.item.getByTestId('inventory-item-name');
         this.itemDesc = this.item.getByTestId('inventory-item-desc');
         this.itemPrice = this.item.getByTestId('inventory-item-price');
         this.addToCartBtn = this.item.getByTestId('add-to-cart-sauce-labs-backpack');
